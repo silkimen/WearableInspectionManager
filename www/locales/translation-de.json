@@ -1,0 +1,70 @@
+{
+	"app": {
+		"add":"Hinzufügen",
+		"apply":"Übernehmen",
+		"back":"Zurück",
+		"cancel":"Abbrechen",
+		"communicationfail":"Es ist ein Fehler bei der Kommunikation mit dem Server aufgetreten:",
+		"delete":"Löschen",
+		"loading":"lade Daten",
+		"save":"Speichern",
+		"saving":"speichere Daten",
+		"name":"Inspection Manager",
+		"no":"Nein",
+		"yes":"Ja"
+	},
+	"header": {
+		"home":"Hauptmenü",
+		"settings":"Einstellungen"
+	},
+	"menu": {
+		"edit":"Inspektionen bearbeiten",
+		"main":"Hauptmenü"
+	},
+	"settings": {
+		"close":"Schließen",
+		"language":"Sprache:",
+		"username":"Benutzername:",
+		"serverurl":"Server URL:"
+	},
+	"mainpage": {
+		"button": {
+			"edit": {
+				"title":"Inspektionspläne verwalten",
+				"description":"Klicken Sie hier um die Inspektionspläne zu erstellen und zu bearbeiten."
+			},
+			"show": {
+				"title":"Inspektionsergebnisse auswerten",
+				"description":"Klicken Sie hier um die Ergebnisse der Inspektionen einzusehen."
+			}
+		}
+	},
+	"editpage": {
+		"addnode":"Kindknoten hinzufügen",
+		"author":"Autor:",
+		"cannotbeundone":"Diese Aktion kann nciht rückgängig gemacht werden.",
+		"chooseInspection":"Bitte wählen Sie einen Inspektionsknoten",
+		"confirmdelete":"Sind Sie sich sicher, dass Sie diesen Knoten löschen wollen?",
+		"confirmsave":"Möchten Sie die getätigten Änderungen speichern bevor Sie diese Ansicht verlassen?",
+		"deletenode":"Knoten löschen",
+		"description":"Beschreibung:",
+		"editproperties":"Eigenschaften bearbeiten",
+		"edittasks":"Aufgaben Bearbeiten",
+		"groupingelement":"Gruppierungselement",
+		"inspectionelement":"Inspektionselement",
+		"inspectionOverview":"Inspektionsübersicht",
+		"name":"Name:",
+		"nodetype":"Knotentyp:",
+		"unsavedchanges":"ungespeicherte Änderung(en)"
+	},
+	"edittaskspage": {
+		"addnode":"Kindknoten hinzufügen",
+		"cannotbeundone":"Diese Aktion kann nciht rückgängig gemacht werden.",
+		"chooseTask":"Bitte wählen Sie einen Aufgabenknoten",
+		"confirmdelete":"Sind Sie sich sicher, dass Sie diesen Knoten löschen wollen?",
+		"confirmsave":"Möchten Sie die getätigten Änderungen speichern bevor Sie diese Ansicht verlassen?",
+		"tasksOverview":"Aufgabenübersicht",
+		"title":"Aufgaben bearbeiten",
+		"unsavedchanges":"ungespeicherte Änderung(en)"
+	}
+}

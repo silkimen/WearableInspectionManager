@@ -1,0 +1,50 @@
+.ui-content{
+	min-width: 540px;
+}
+
+/* 25% / 75% Grid Layout */
+.ui-grid-custom > .ui-block-a {
+	width: 25%;
+}
+.ui-grid-custom > .ui-block-b {
+	width: 75%;
+	padding: 0 0 0 5px;
+}
+/* footer */
+.inspection-footer p {
+	font-size: 1em;
+	color: #666;
+	font-weight: 400;
+	margin: 1em 1em .75em;
+}
+/* logo */
+.inspection-logo-small {
+	display: inline-block;
+	line-height: 32px;
+	height: 32px;
+	background-image: url(../img/checklist-icon_32.png);
+	background-repeat: no-repeat;
+	padding: 0 0 0 32px;
+}
+/* minimum height of block element */
+.min-height-210 {
+	min-height: 210px;
+}
+/* status message in footer */
+.status-message {
+	display: inline-block;
+	line-height: 32px;
+	height: 32px;
+	float: right;
+}
+/* zTree styling */
+.ztree li span.button.group_ico_open{margin-right:2px; background-position:-110px -16px; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.group_ico_close{margin-right:2px; background-position:-110px 0; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.group_ico_docu{margin-right:2px; background-position:-110px 0; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.boolean_ico_open{background-image: url("../img/alphabet/b.png"); width: 16px; height:16px;}
+.ztree li span.button.date_ico_open{background-image: url("../img/alphabet/d.png"); width: 16px; height:16px;}
+.ztree li span.button.float_ico_open{background-image: url("../img/alphabet/f.png"); width: 16px; height:16px;}
+.ztree li span.button.integer_ico_open{background-image: url("../img/alphabet/i.png"); width: 16px; height:16px;}
+.ztree li span.button.list_ico_open{background-image: url("../img/alphabet/l.png"); width: 16px; height:16px;}
+.ztree li span.button.range_ico_open{background-image: url("../img/alphabet/r.png"); width: 16px; height:16px;}
+.ztree li span.button.string_ico_open{background-image: url("../img/alphabet/s.png"); width: 16px; height:16px;}

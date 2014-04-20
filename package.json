@@ -1,0 +1,21 @@
+{
+	"name": "Inspection Manager",
+	"main": "www/index.html",
+	"description": "Wearable inspection tool - manager component",
+	"version": "0.1",
+	"window": {
+		"title": "Inspection Manager",
+		"toolbar": false,
+		"frame": true,
+		"width": 1024,
+		"height": 768,
+		"resizable": true,
+		"position": "center"
+	},
+	"webkit": {
+		"plugin": false,
+		"java": false,
+		"page-cache": true
+	},
+	"nodejs": true
+}

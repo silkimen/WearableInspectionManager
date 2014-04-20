@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inspection Designer</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.2.css" />
+	<link rel="stylesheet" href="css/custom.css" />
+	<link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" />
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/i18next-1.7.2.min.js"></script>
+	<script src="js/jquery.ztree.core-3.5.min.js"></script>
+	<script src="js/jquery.ztree.exedit-3.5.min.js"></script>
+	<script src="js/jquery.ztree.exhide-3.5.min.js"></script>
+	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+	<script src="js/adapter.js"></script>
+	<script src="js/settings.js"></script>
+	<script src="js/tree.js"></script>
+	<script src="js/inspection.js"></script>
+	<script src="js/task.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body>
+
+<!-- Main Page -->
+<div data-role="page" id="main">
+	<div data-role="header">
+		<a href="#" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-home" data-i18n="header.home">Home</a>
+		<h2 data-i18n="menu.main">Main Menu</h2>
+		<a href="#settings" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear" data-i18n="header.settings">Settings</a>
+	</div>
+	<div role="main" class="ui-content">
+		<ul data-role="listview" data-inset="true">
+			<li>
+				<a href="#edit">
+					<img src="img/edit.png">
+					<h2 data-i18n="mainpage.button.edit.title">title</h2>
+					<p data-i18n="mainpage.button.edit.description">description</p>
+				</a>
+			</li>
+			<li>
+				<a href="#show">
+					<img src="img/search.png">
+					<h2 data-i18n="mainpage.button.show.title">title</h2>
+					<p data-i18n="mainpage.button.show.description">description</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div data-role="footer" data-position="fixed" class="inspection-footer">
+		<p><span class="inspection-logo-small">Inspection Designer xx</span></p>
+	</div>
+</div>
+
+<!-- Settings Panel -->
+<div data-role="panel" id="settings" data-position="right" data-display="overlay" data-theme="a">
+	<div class="ui-panel-inner">
+	<div class="ui-body ui-body-a ui-corner-all">
+		<form>
+			<label for="input-username" data-i18n="settings.username">Username:</label>
+			<input type="text" name="input-username" id="input-username" value="">
+			<label for="input-serverurl" data-i18n="settings.serverurl">Server URL:</label>
+			<input type="text" name="input-serverurl" id="input-serverurl" value="">
+			<fieldset data-role="controlgroup">
+				<legend data-i18n="settings.language">Language:</legend>
+					<input type="radio" name="radio-language" id="radio-language-en" value="en">
+					<label for="radio-language-en">English</label>
+					<input type="radio" name="radio-language" id="radio-language-de" value="de">
+					<label for="radio-language-de">Deutsch</label>
+			</fieldset>
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><a href="#" data-rel="close" id="settings-save" class="ui-btn ui-mini ui-corner-all ui-btn-icon-left ui-icon-check" data-i18n="app.save">Save</a></div>
+				<div class="ui-block-b"><a href="#" data-rel="close" id="settings-close" class="ui-btn ui-mini ui-corner-all ui-btn-icon-left ui-icon-delete" data-i18n="settings.close">Close</a></div>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>
+
+<!-- Edit Inspection Page -->
+<div data-role="page" id="edit">
+	<div data-role="header">
+		<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+			<a href="#" id="edit-back" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" data-i18n="app.back">Back</a>
+			<a href="#" id="edit-save" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-check" data-i18n="app.save">Save</a>
+		</div>
+		<h2 data-i18n="menu.edit">Edit Inspections</h2>
+		<a href="#settings" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear" data-i18n="header.settings">Settings</a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="ui-grid-custom">
+			<div class="ui-block-a">
+				<div class="ui-bar ui-bar-a">
+					<h3 data-i18n="editpage.inspectionOverview">Overview</h3>
+				</div>
+				<div class="ui-body ui-body-a min-height-210">
+					<ul id="tree" class="ztree"></ul>
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<div class="ui-bar ui-bar-a">
+					<h3 class="inspection-edit-path">Path</h3>
+				</div>
+				<div class="ui-body ui-body-a min-height-210">
+					<ul class="node-operation" data-role="listview" data-inset="true">
+						<li><a href="#editproperties" id="button-edit-properties" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="editpage.editproperties">Edit properties</a></li>
+						<li><a href="#addnode" id="button-add-node" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="editpage.addnode">Add child node</a></li>
+						<li><a href="#" id="button-edit-task" class="ui-state-disabled" data-i18n="editpage.edittasks">Edit tasks</a></li>
+						<li><a href="#deletenode" id="button-delete-node" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="editpage.deletenode">Delete selected node</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed" class="inspection-footer">
+		<p><span class="inspection-logo-small">Inspection Designer xx</span><span class="status-message"></span></p>
+	</div>
+	
+	<!-- Properties popup -->
+	<div data-role="popup" id="editproperties" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		<div data-role="header" data-theme="a">
+			<h1 data-i18n="editpage.editproperties">Edit properties</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form>
+				<ul data-role="listview" data-inset="true">
+					<li class="ui-field-contain">
+						<label for="popup-properties-treeitem-name">Name:</label>
+						<input type="text" name="popup-properties-treeitem-name" id="popup-properties-treeitem-name" value="">
+					</li>
+					<li class="ui-field-contain">
+						<label for="popup-properties-treeitem-author">Author:</label>
+						<input type="text" name="popup-properties-treeitem-author" id="popup-properties-treeitem-author" value="">
+					</li>
+					<li class="ui-field-contain">
+						<label for="popup-editproperties-textarea-nodedescription" data-i18n="editpage.description">Description:</label>
+						<textarea cols="40" rows="8" name="popup-editproperties-textarea-nodedescription" id="popup-editproperties-textarea-nodedescription" disabled="disabled"></textarea>
+					</li>
+					<li class="ui-body ui-body-b">
+						<fieldset class="ui-grid-a">
+								<div class="ui-block-a"><a href="#" id="popup-editproperties-apply" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left ui-icon-check" data-rel="back" data-i18n="app.apply">Apply</a></div>
+								<div class="ui-block-b"><a href="#" id="popup-editproperties-cancelcancel" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left ui-icon-delete" data-rel="back" data-i18n="app.cancel">Cancel</a></div>
+						</fieldset>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	
+	<!-- Add child node popup -->
+	<div data-role="popup" id="addnode" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		<div data-role="header" data-theme="a">
+			<h1 data-i18n="editpage.addnode">Add child node</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form>
+				<ul data-role="listview" data-inset="true">
+					<li class="ui-field-contain">
+						<label for="popup-addnode-treeitem-name" data-i18n="editpage.name">Name:</label>
+						<input type="text" name="popup-addnode-treeitem-name" id="popup-addnode-treeitem-name" value="">
+					</li>
+					<li class="ui-field-contain">
+						<label for="popup-addnode-treeitem-author" data-i18n="editpage.author">Author:</label>
+						<input type="text" name="popup-addnode-treeitem-author" id="popup-addnode-treeitem-author" value="">
+					</li>
+					<li class="ui-field-contain">
+					<fieldset data-role="controlgroup">
+						<legend data-i18n="editpage.nodetype">Node Type:</legend>
+							<input type="radio" name="radio-nodetype" id="radio-nodetype-group" value="group" checked="checked">
+							<label for="radio-nodetype-group" data-i18n="editpage.groupingelement">Grouping element</label>
+							<input type="radio" name="radio-nodetype" id="radio-nodetype-inspection" value="inspection">
+							<label for="radio-nodetype-inspection" data-i18n="editpage.inspectionelement">Inspection element</label>
+					</fieldset>
+					</li>
+					<li class="ui-field-contain">
+						<label for="popup-addnode-textarea-nodedescription" data-i18n="editpage.description">Description:</label>
+						<textarea cols="40" rows="8" name="popup-addnode-textarea-nodedescription" id="popup-addnode-textarea-nodedescription" disabled="disabled"></textarea>
+					</li>
+					<li class="ui-body ui-body-b">
+						<fieldset class="ui-grid-a">
+								<div class="ui-block-a"><a href="#" id="popup-addnode-add" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left ui-icon-plus" data-rel="back" data-i18n="app.add">Add</a></div>
+								<div class="ui-block-b"><a href="#" id="popup-addnode-cancel" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left ui-icon-delete" data-rel="back" data-i18n="app.cancel">Cancel</a></div>
+						</fieldset>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	
+	<!-- Delete popup -->
+	<div data-role="popup" id="deletenode" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		<div data-role="header" data-theme="a">
+			<h1 data-i18n="editpage.deletenode">Delete node</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<h3 style="text-align: center;" class="ui-title" data-i18n="editpage.confirmdelete">Delete?</h3>
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><a href="#" id="popup-deletenode-confirm" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.delete">Delete</a></div>
+				<div class="ui-block-b"><a href="#" id="popup-deletenode-cancel" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.cancel">Cancel</a></div>
+			</fieldset>
+		</div>
+	</div>
+	
+	<!-- Leave page popup -->
+	<div data-role="popup" id="leavepage" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		<div data-role="header" data-theme="a">
+			<h1 data-i18n="editpage.unsavedchanges">Changes</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<h3 style="text-align: center;" class="ui-title" data-i18n="editpage.confirmsave">Save Changes?</h3>
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><a href="#" id="popup-leavepage-yes" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-i18n="app.yes">Yes</a></div>
+				<div class="ui-block-b"><a href="#" id="popup-leavepage-no" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-i18n="app.no">No</a></div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+
+<!-- Edit Tasks Page -->
+<div data-role="page" id="edittasks">
+	<div data-role="header">
+		<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+			<a href="#" id="edittasks-back" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" data-rel="back" data-i18n="app.back">Back</a>
+			<a href="#" id="edittasks-save" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-check" data-i18n="app.save">Save</a>
+		</div>
+		<h2 data-i18n="edittaskspage.title">Edit Tasks</h2>
+		<a href="#settings" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear" data-i18n="header.settings">Settings</a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="ui-grid-custom">
+			<div class="ui-block-a">
+				<div class="ui-bar ui-bar-a">
+					<h3 data-i18n="edittaskspage.tasksOverview">Overview</h3>
+				</div>
+				<div class="ui-body ui-body-a min-height-210">
+					<ul id="tasktree" class="ztree"></ul>
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<div class="ui-bar ui-bar-a">
+					<h3 class="task-edit-path">Path</h3>
+				</div>
+				<div class="ui-body ui-body-a min-height-210">
+					<ul class="tasknode-operation" data-role="listview" data-inset="true">
+						<li><a href="#edittaskproperties" id="button-edit-taskproperties" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="menu.editproperties">Edit properties</a></li>
+						<li><a href="#addtasknode" id="button-add-tasknode" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="menu.addnode">Add child node</a></li>
+						<li><a href="#deletetasknode" id="button-delete-tasknode" id="button-delete-node" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="menu.deletenode">Delete selected node</a></li>
+					</ul>
+					<ul class="tasknode-attributes" data-role="listview" data-inset="true">
+						<li>TODO: Hier sollen die speziellen Attribute eingeblendet werden z.B. bei ListTask oder RangeTask</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed" class="inspection-footer">
+		<p><span class="inspection-logo-small">Inspection Designer xx</span><span class="status-message"></span></p>
+	</div>
+	
+	<!-- Properties popup -->
+	<div data-role="popup" id="edittaskproperties" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		<div data-role="header" data-theme="a">
+			<h1 data-i18n="edittaskspage.editproperties">Edit properties</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form>
+				<ul data-role="listview" data-inset="true">
+					<li class="ui-field-contain">
+						<label for="taskpopup-properties-treeitem-name">Name:</label>
+						<input type="text" name="taskpopup-properties-treeitem-name" id="taskpopup-properties-treeitem-name" value="">
+					</li>
+					<li class="ui-field-contain">
+						<label for="taskpopup-properties-treeitem-author">Author:</label>
+						<input type="text" name="taskpopup-properties-treeitem-author" id="taskpopup-properties-treeitem-author" value="">
+					</li>
+					<li class="ui-field-contain">
+						<label for="taskpopup-properties-textarea-description">Description:</label>
+						<textarea cols="40" rows="8" name="taskpopup-properties-textarea-description" id="taskpopup-properties-textarea-description"></textarea>
+					</li>
+					<li class="ui-field-contain">
+						<label for="taskpopup-properties-treeitem-weight">Weight:</label>
+						<input type="text" name="taskpopup-properties-treeitem-weight" id="taskpopup-properties-treeitem-weight" value="">
+					</li>
+					<li class="ui-body ui-body-b">
+						<fieldset class="ui-grid-a">
+								<div class="ui-block-a"><a href="#" id="taskpopup-editproperties-apply" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.apply">Apply</a></div>
+								<div class="ui-block-b"><a href="#" id="taskpopup-editproperties-cancel" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.cancel">Cancel</a></div>
+						</fieldset>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	
+	<!-- Add child node popup -->
+	<div data-role="popup" id="addtasknode" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		<div data-role="header" data-theme="a">
+			<h1 data-i18n="edittaskspage.addnode">Add child node</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form>
+				<ul data-role="listview" data-inset="true">
+					<li class="ui-field-contain">
+						<label for="taskpopup-addnode-treeitem-name">Name:</label>
+						<input type="text" name="taskpopup-addnode-treeitem-name" id="taskpopup-addnode-treeitem-name" value="">
+					</li>
+					<li class="ui-field-contain">
+						<label for="taskpopup-addnode-treeitem-author">Author:</label>
+						<input type="text" name="taskpopup-addnode-treeitem-author" id="taskpopup-addnode-treeitem-author" value="">
+					</li>
+					<li class="ui-field-contain">
+						<label for="taskpopup-addnode-textarea-description">Description:</label>
+						<textarea cols="40" rows="8" name="taskpopup-addnode-textarea-description" id="taskpopup-addnode-textarea-description"></textarea>
+					</li>
+					<li class="ui-field-contain">
+						<label for="taskpopup-addnode-treeitem-weight">Weight:</label>
+						<input type="text" name="taskpopup-addnode-treeitem-weight" id="taskpopup-addnode-treeitem-weight" value="">
+					</li>
+					<li class="ui-field-contain">
+						<label for="taskpopup-addnode-select-type">Select type:</label>
+						<select name="taskpopup-addnode-select-type" id="taskpopup-addnode-select-type">
+							<option value="Task">Grouping Task</option>
+							<option value="BooleanTask">Boolean Task</option>
+							<option value="DateTask">Date Task</option>
+							<option value="FloatTask">Float Task</option>
+							<option value="IntegerTask">Integer Task</option>
+							<option value="StringTask">String Task</option>
+							<option value="ListTask">List Task</option>
+							<option value="RangeTask">Range Task</option>
+						</select>
+					</li>
+					<li class="ui-body ui-body-b">
+						<fieldset class="ui-grid-a">
+								<div class="ui-block-a"><a href="#" id="taskpopup-addnode-add" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.add">Add</a></div>
+								<div class="ui-block-b"><a href="#" id="taskpopup-addnode-cancel" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.cancel">Cancel</a></div>
+						</fieldset>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	
+	<!-- Delete popup -->
+	<div data-role="popup" id="deletetasknode" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		<div data-role="header" data-theme="a">
+			<h1 data-i18n="edittaskspage.deletenode">Delete node</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<h3 style="text-align: center;" class="ui-title" data-i18n="editpage.confirmdelete">Delete?</h3>
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><a href="#" id="taskpopup-deletenode-confirm" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.delete">Delete</a></div>
+				<div class="ui-block-b"><a href="#" id="taskpopup-deletenode-cancel" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.cancel">Cancel</a></div>
+			</fieldset>
+		</div>
+	</div>
+	
+	<!-- Leave page popup -->
+	<div data-role="popup" id="leavetaskpage" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
+		<div data-role="header" data-theme="a">
+			<h1 data-i18n="editpage.unsavedchanges">Changes</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<h3 style="text-align: center;" class="ui-title" data-i18n="editpage.confirmsave">Save Changes?</h3>
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><a href="#" id="taskpopup-leavepage-yes" class="ui-btn ui-corner-all ui-shadow ui-btn-a">Yes</a></div>
+				<div class="ui-block-b"><a href="#" id="taskpopup-leavepage-no" class="ui-btn ui-corner-all ui-shadow ui-btn-a">No</a></div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

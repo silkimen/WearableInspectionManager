@@ -1,0 +1,70 @@
+{
+	"app": {
+		"add":"Add",
+		"apply":"Apply",
+		"back":"Back",
+		"cancel":"Cancel",
+		"communicationfail":"An error occured while requesting data from the server:",
+		"delete":"Delete",
+		"loading":"loading data",
+		"save":"Save",
+		"saving":"saving data",
+		"name":"Inspection Manager",
+		"no":"No",
+		"yes":"Yes"
+	},
+	"header": {
+		"home":"Mainpage",
+		"settings":"Settings"
+	},
+	"menu": {
+		"edit":"Edit Inspections",
+		"main":"Main Menu"
+	},
+	"settings": {
+		"close":"Close",
+		"language":"Language:",
+		"username":"Username:",
+		"serverurl":"Server URL:"
+	},
+	"mainpage": {
+		"button": {
+			"edit": {
+				"title":"Manage Inspection Plans",
+				"description":"Click here to create and edit the inspection plans."
+			},
+			"show": {
+				"title":"Show Inspection Results",
+				"description":"Click here to show the results of the inspections."
+			}
+		}
+	},
+	"editpage": {
+		"addnode":"Add child node",
+		"author":"Author:",
+		"cannotbeundone":"This action cannot be undone.",
+		"chooseInspection":"Please select an inspection node",
+		"confirmdelete":"Are you sure you want to delete this node?",
+		"confirmsave":"Would you like to save the changes before leaving the management view?",
+		"deletenode":"Delete node",
+		"description":"Description:",
+		"editproperties":"Edit properties",
+		"edittasks":"Edit tasks",
+		"groupingelement":"Grouping element",
+		"inspectionelement":"Inspection element",
+		"inspectionOverview":"Inspection overview",
+		"name":"Name:",
+		"nodetype":"Node type:",
+		"unsavedchanges":"unsaved change(s)"
+	},
+	"edittaskspage": {
+		"addnode":"Add child node",
+		"cannotbeundone":"This action cannot be undone.",
+		"chooseTask":"Please select an task node",
+		"confirmdelete":"Are you sure you want to delete this node?",
+		"confirmsave":"Would you like to save the changes before leaving the task management view?",
+		"tasksOverview":"Tasks overview",
+		"title":"Edit Tasks",
+		"unsavedchanges":"unsaved change(s)"
+	}
+}
