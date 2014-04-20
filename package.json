@@ -10,7 +10,8 @@
 		"width": 1024,
 		"height": 768,
 		"resizable": true,
-		"position": "center"
+		"position": "center",
+		"icon": "www/img/checklist-icon_128.png"
 	},
 	"webkit": {
 		"plugin": false,
