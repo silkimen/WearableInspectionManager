@@ -30,7 +30,7 @@ var taskManager = {
 	
 	// Event Handler
 	onLoad: function(event, data) {
-		//TODO
+		//CHECK
 		$('.task-edit-path').text($.t('edittaskspage.chooseTask'));
 		$('.tasknode-operation li a').addClass('ui-state-disabled');
 		if(data.prevPage.attr('id') != 'edit') {
@@ -46,7 +46,8 @@ var taskManager = {
 	},
 	onApplyProperties: function() {
 		//CHECK
-		var selected = inspectionTree.getTaskNodeById(inspectionTree.taskTree.getSelectedNodes()[0].id);
+		var zTreeSelected = inspectionTree.taskTree.getSelectedNodes()[0];
+		var selected = inspectionTree.getTaskNodeById(zTreeSelected.id);
 		inspectionTree.updateTaskNode(selected.id, {
 			name: $('#taskpopup-properties-treeitem-name').val(),
 			author: $('#taskpopup-properties-treeitem-author').val(),

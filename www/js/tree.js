@@ -124,10 +124,16 @@ var inspectionTree = {
 		this.zTree = $.fn.zTree.init($('#tree'), this.InspectionTreeSettings, this.inspectionNodes);
 		this.taskTree = $.fn.zTree.init($('#tasktree'), this.TaskTreeSettings, this.taskNodes);
 		if(selectedInspection && !fullReset) {
-			this.zTree.selectNode(selectedInspection);
+			// Wichtig! Neu einlesen des selektierten Nodes, da der Name geändert sein kann
+			var newInspection = this.zTree.getNodeByParam('id', selectedInspection.id);
+			$('.inspection-edit-path').text(this.getNodePath(newInspection));
+			this.zTree.selectNode(newInspection);
 		}
 		if(selectedTask && !fullReset) {
-			this.taskTree.selectNode(selectedTask);
+			// Wichtig! Neu einlesen des selektierten Nodes, da der Name geändert sein kann
+			var newTask = this.taskTree.getNodeByParam('id', selectedTask.id);
+			$('.task-edit-path').text(this.getNodePath(newTask));
+			this.taskTree.selectNode(newTask);
 		}
 		if(this.currentTask > 0) {
 			var rootNodes = this.taskTree.getNodesByParam('pId', null, null);

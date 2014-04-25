@@ -82,7 +82,8 @@ var inspectionManager = {
 		}
 	},
 	onApplyProperties: function() {
-		var selected = inspectionTree.getNodeById(inspectionTree.zTree.getSelectedNodes()[0].id);
+		var zTreeSelected = inspectionTree.zTree.getSelectedNodes()[0];
+		var selected = inspectionTree.getNodeById(zTreeSelected.id);
 		var data = null;
 		inspectionTree.updateNode(selected.id, {
 			name: $('#popup-properties-treeitem-name').val(),
