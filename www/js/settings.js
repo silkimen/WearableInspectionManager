@@ -9,6 +9,9 @@ var inspectionSettings = {
 			inspectionClient.settings = JSON.parse(localStorage.settings);
 		} else {
 			inspectionClient.settings = this.defaults;
+			if(!inspectionClient.isNwPackage) {
+				inspectionClient.settings.serverUrl = location.protocol + '//' + location.host + '/';
+			}
 		}
 		$("body>[data-role='panel']").panel().enhanceWithin();
 		$('#input-serverurl').val(inspectionClient.settings.serverUrl)

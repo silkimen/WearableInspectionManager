@@ -2,6 +2,7 @@
 var inspectionClient = {
 	title: 'Inspection Manager',
 	version: '0.1',
+	isNwPackage: typeof(process) == 'object',
 	init: function() {
 		// initialisiere Einstellungen
 		inspectionSettings.init();
