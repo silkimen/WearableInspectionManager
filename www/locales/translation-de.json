@@ -49,7 +49,7 @@
 		"deletenode":"Knoten löschen",
 		"description":"Beschreibung:",
 		"editproperties":"Eigenschaften bearbeiten",
-		"edittasks":"Aufgaben Bearbeiten",
+		"edittasks":"Inspektion bearbeiten",
 		"groupingelement":"Gruppierungselement",
 		"inspectionelement":"Inspektionselement",
 		"inspectionOverview":"Inspektionsübersicht",
@@ -59,12 +59,29 @@
 	},
 	"edittaskspage": {
 		"addnode":"Kindknoten hinzufügen",
-		"cannotbeundone":"Diese Aktion kann nciht rückgängig gemacht werden.",
+		"author":"Autor:",
+		"cannotbeundone":"Diese Aktion kann nicht rückgängig gemacht werden.",
 		"chooseTask":"Bitte wählen Sie einen Aufgabenknoten",
 		"confirmdelete":"Sind Sie sich sicher, dass Sie diesen Knoten löschen wollen?",
 		"confirmsave":"Möchten Sie die getätigten Änderungen speichern bevor Sie diese Ansicht verlassen?",
+		"deletenode":"Knoten löschen",
+		"description":"Beschreibung:",
+		"editproperties":"Eigenschaften bearbeiten",
+		"name":"Name:",
+		"nodetype":"Knotentyp:",
+		"weight":"Gewichtung:",
 		"tasksOverview":"Aufgabenübersicht",
 		"title":"Aufgaben bearbeiten",
-		"unsavedchanges":"ungespeicherte Änderung(en)"
+		"unsavedchanges":"ungespeicherte Änderung(en)",
+		"type": {
+			"boolean":"Boolscher Rückmeldewert",
+			"date":"Datum Rückmeldewert",
+			"float":"Fließkomma Rückmeldewert",
+			"group":"Gruppierungsknoten",
+			"integer":"Ganzzahl Rückmeldewert",
+			"list":"Rückmeldewert aus Liste",
+			"range":"Rückmeldewert aus Wertebereich",
+			"string":"Zeichenketten Rückmeldewert"
+		}
 	}
 }

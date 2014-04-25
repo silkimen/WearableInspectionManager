@@ -49,7 +49,7 @@
 		"deletenode":"Delete node",
 		"description":"Description:",
 		"editproperties":"Edit properties",
-		"edittasks":"Edit tasks",
+		"edittasks":"Edit inspection",
 		"groupingelement":"Grouping element",
 		"inspectionelement":"Inspection element",
 		"inspectionOverview":"Inspection overview",
@@ -59,12 +59,29 @@
 	},
 	"edittaskspage": {
 		"addnode":"Add child node",
+		"author":"Author:",
 		"cannotbeundone":"This action cannot be undone.",
 		"chooseTask":"Please select an task node",
 		"confirmdelete":"Are you sure you want to delete this node?",
 		"confirmsave":"Would you like to save the changes before leaving the task management view?",
+		"deletenode":"Delete node",
+		"description":"Description:",
+		"editproperties":"Edit properties",
+		"name":"Name:",
+		"nodetype":"Select type:",
+		"weight":"Weight:",
 		"tasksOverview":"Tasks overview",
 		"title":"Edit Tasks",
-		"unsavedchanges":"unsaved change(s)"
+		"unsavedchanges":"unsaved change(s)",
+		"type": {
+			"boolean":"Boolean Task",
+			"date":"Date Task",
+			"float":"Float Task",
+			"group":"Grouping Task",
+			"integer":"Integer Task",
+			"list":"List Task",
+			"range":"Range Task",
+			"string":"String Task"
+		}
 	}
 }

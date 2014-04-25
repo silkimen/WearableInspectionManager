@@ -244,9 +244,9 @@
 				</div>
 				<div class="ui-body ui-body-a min-height-210">
 					<ul class="tasknode-operation" data-role="listview" data-inset="true">
-						<li><a href="#edittaskproperties" id="button-edit-taskproperties" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="menu.editproperties">Edit properties</a></li>
-						<li><a href="#addtasknode" id="button-add-tasknode" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="menu.addnode">Add child node</a></li>
-						<li><a href="#deletetasknode" id="button-delete-tasknode" id="button-delete-node" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="menu.deletenode">Delete selected node</a></li>
+						<li><a href="#edittaskproperties" id="button-edit-taskproperties" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="edittaskspage.editproperties">Edit properties</a></li>
+						<li><a href="#addtasknode" id="button-add-tasknode" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="edittaskspage.addnode">Add child node</a></li>
+						<li><a href="#deletetasknode" id="button-delete-tasknode" id="button-delete-node" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="edittaskspage.deletenode">Delete selected node</a></li>
 					</ul>
 					<ul class="tasknode-attributes" data-role="listview" data-inset="true">
 						<li>TODO: Hier sollen die speziellen Attribute eingeblendet werden z.B. bei ListTask oder RangeTask</li>
@@ -268,19 +268,19 @@
 			<form>
 				<ul data-role="listview" data-inset="true">
 					<li class="ui-field-contain">
-						<label for="taskpopup-properties-treeitem-name">Name:</label>
+						<label for="taskpopup-properties-treeitem-name" data-i18n="edittaskspage.name">Name:</label>
 						<input type="text" name="taskpopup-properties-treeitem-name" id="taskpopup-properties-treeitem-name" value="">
 					</li>
 					<li class="ui-field-contain">
-						<label for="taskpopup-properties-treeitem-author">Author:</label>
+						<label for="taskpopup-properties-treeitem-author" data-i18n="edittaskspage.author">Author:</label>
 						<input type="text" name="taskpopup-properties-treeitem-author" id="taskpopup-properties-treeitem-author" value="">
 					</li>
 					<li class="ui-field-contain">
-						<label for="taskpopup-properties-textarea-description">Description:</label>
+						<label for="taskpopup-properties-textarea-description" data-i18n="edittaskspage.description">Description:</label>
 						<textarea cols="40" rows="8" name="taskpopup-properties-textarea-description" id="taskpopup-properties-textarea-description"></textarea>
 					</li>
 					<li class="ui-field-contain">
-						<label for="taskpopup-properties-treeitem-weight">Weight:</label>
+						<label for="taskpopup-properties-treeitem-weight"  data-i18n="edittaskspage.weight">Weight:</label>
 						<input type="text" name="taskpopup-properties-treeitem-weight" id="taskpopup-properties-treeitem-weight" value="">
 					</li>
 					<li class="ui-body ui-body-b">
@@ -303,32 +303,32 @@
 			<form>
 				<ul data-role="listview" data-inset="true">
 					<li class="ui-field-contain">
-						<label for="taskpopup-addnode-treeitem-name">Name:</label>
+						<label for="taskpopup-addnode-treeitem-name" data-i18n="edittaskspage.name">Name:</label>
 						<input type="text" name="taskpopup-addnode-treeitem-name" id="taskpopup-addnode-treeitem-name" value="">
 					</li>
 					<li class="ui-field-contain">
-						<label for="taskpopup-addnode-treeitem-author">Author:</label>
+						<label for="taskpopup-addnode-treeitem-author" data-i18n="edittaskspage.author">Author:</label>
 						<input type="text" name="taskpopup-addnode-treeitem-author" id="taskpopup-addnode-treeitem-author" value="">
 					</li>
 					<li class="ui-field-contain">
-						<label for="taskpopup-addnode-textarea-description">Description:</label>
+						<label for="taskpopup-addnode-textarea-description" data-i18n="edittaskspage.description">Description:</label>
 						<textarea cols="40" rows="8" name="taskpopup-addnode-textarea-description" id="taskpopup-addnode-textarea-description"></textarea>
 					</li>
 					<li class="ui-field-contain">
-						<label for="taskpopup-addnode-treeitem-weight">Weight:</label>
+						<label for="taskpopup-addnode-treeitem-weight" data-i18n="edittaskspage.weight">Weight:</label>
 						<input type="text" name="taskpopup-addnode-treeitem-weight" id="taskpopup-addnode-treeitem-weight" value="">
 					</li>
 					<li class="ui-field-contain">
-						<label for="taskpopup-addnode-select-type">Select type:</label>
+						<label for="taskpopup-addnode-select-type" data-i18n="edittaskspage.nodetype">Select type:</label>
 						<select name="taskpopup-addnode-select-type" id="taskpopup-addnode-select-type">
-							<option value="Task">Grouping Task</option>
-							<option value="BooleanTask">Boolean Task</option>
-							<option value="DateTask">Date Task</option>
-							<option value="FloatTask">Float Task</option>
-							<option value="IntegerTask">Integer Task</option>
-							<option value="StringTask">String Task</option>
-							<option value="ListTask">List Task</option>
-							<option value="RangeTask">Range Task</option>
+							<option value="Task" data-i18n="edittaskspage.type.group">Grouping Task</option>
+							<option value="BooleanTask" data-i18n="edittaskspage.type.boolean">Boolean Task</option>
+							<option value="DateTask" data-i18n="edittaskspage.type.date">Date Task</option>
+							<option value="FloatTask" data-i18n="edittaskspage.type.float">Float Task</option>
+							<option value="IntegerTask" data-i18n="edittaskspage.type.integer">Integer Task</option>
+							<option value="StringTask" data-i18n="edittaskspage.type.string">String Task</option>
+							<option value="ListTask" data-i18n="edittaskspage.type.list">List Task</option>
+							<option value="RangeTask" data-i18n="edittaskspage.type.range">Range Task</option>
 						</select>
 					</li>
 					<li class="ui-body ui-body-b">
@@ -348,24 +348,10 @@
 			<h1 data-i18n="edittaskspage.deletenode">Delete node</h1>
 		</div>
 		<div role="main" class="ui-content">
-			<h3 style="text-align: center;" class="ui-title" data-i18n="editpage.confirmdelete">Delete?</h3>
+			<h3 style="text-align: center;" class="ui-title" data-i18n="edittaskspage.confirmdelete">Delete?</h3>
 			<fieldset class="ui-grid-a">
 				<div class="ui-block-a"><a href="#" id="taskpopup-deletenode-confirm" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.delete">Delete</a></div>
 				<div class="ui-block-b"><a href="#" id="taskpopup-deletenode-cancel" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.cancel">Cancel</a></div>
-			</fieldset>
-		</div>
-	</div>
-	
-	<!-- Leave page popup -->
-	<div data-role="popup" id="leavetaskpage" data-overlay-theme="a" data-theme="a" data-dismissible="false" class="ui-corner-all">
-		<div data-role="header" data-theme="a">
-			<h1 data-i18n="editpage.unsavedchanges">Changes</h1>
-		</div>
-		<div role="main" class="ui-content">
-			<h3 style="text-align: center;" class="ui-title" data-i18n="editpage.confirmsave">Save Changes?</h3>
-			<fieldset class="ui-grid-a">
-				<div class="ui-block-a"><a href="#" id="taskpopup-leavepage-yes" class="ui-btn ui-corner-all ui-shadow ui-btn-a">Yes</a></div>
-				<div class="ui-block-b"><a href="#" id="taskpopup-leavepage-no" class="ui-btn ui-corner-all ui-shadow ui-btn-a">No</a></div>
 			</fieldset>
 		</div>
 	</div>
