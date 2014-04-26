@@ -37,6 +37,15 @@
 	height: 32px;
 	float: right;
 }
+/* hidden elements */
+.hidden-element {
+	display: none;
+}
+/* inline controlgroup */
+.controlgroup-textinput{
+    padding-top:.11em;
+    padding-bottom:.11em;
+}
 /* zTree styling */
 .ztree li span.button.group_ico_open{margin-right:2px; background-position:-110px -16px; vertical-align:top; *vertical-align:middle}
 .ztree li span.button.group_ico_close{margin-right:2px; background-position:-110px 0; vertical-align:top; *vertical-align:middle}

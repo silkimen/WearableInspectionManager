@@ -15,6 +15,11 @@ var inspectionItem = function() {
 		this.resourceIdentifier = null;
 		this.weight = 0;
 	}
+	
+	var GenericListOption = function() {
+		this.class = 'net.muszytowski.WearableInspectionServer.items.GenericListOption';
+		this.value = '';
+	}
 
 	var Task = function() {
 		this.class = 'net.muszytowski.WearableInspectionServer.items.Task';
@@ -62,18 +67,24 @@ var inspectionItem = function() {
 
 	var RangeTask = function() {
 		this.class = 'net.muszytowski.WearableInspectionServer.items.RangeTask';
-		this.start = '';
-		this.stop = '';
-		this.step = '';
+		this.start = 0;
+		this.stop = 1;
+		this.step = 0.1;
 		this.value = '';
 	}
 	RangeTask.prototype = new GenericTask();
 	
 	var InspectionTree = function() {}
 	InspectionTree.prototype = new GenericTree();
+		
+	var ListOption = function() {
+		this.class = 'net.muszytowski.WearableInspectionServer.items.ListOption';
+	}
+	ListOption.prototype = new GenericListOption();
 	
 	return {
 		InspectionTree: InspectionTree,
+		ListOption: ListOption,
 		Task: Task,
 		BooleanTask: BooleanTask,
 		DateTask: DateTask,
@@ -129,14 +140,14 @@ var inspectionAdapter = {
 				case 'ListTask':
 					item.weight = node.weight;
 					item.value = node.value;
-					item.options = [];
+					item.options = node.list;
 					return item;
 					break;
 				case 'RangeTask':
 					item.weight = node.weight;
-					item.start = node.start;
-					item.stop = node.stop;
-					item.step = node.step;
+					item.start = node.range.start;
+					item.stop = node.range.stop;
+					item.step = node.range.step;
 					item.value = node.value;
 					return item;
 					break;

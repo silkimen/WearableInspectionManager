@@ -248,8 +248,24 @@
 						<li><a href="#addtasknode" id="button-add-tasknode" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="edittaskspage.addnode">Add child node</a></li>
 						<li><a href="#deletetasknode" id="button-delete-tasknode" id="button-delete-node" class="ui-state-disabled" data-rel="popup" data-position-to="window" data-i18n="edittaskspage.deletenode">Delete selected node</a></li>
 					</ul>
-					<ul class="tasknode-attributes" data-role="listview" data-inset="true">
-						<li>TODO: Hier sollen die speziellen Attribute eingeblendet werden z.B. bei ListTask oder RangeTask</li>
+					<ul id="tasknode-range-attributes" class="hidden-element" data-role="listview" data-inset="true">
+						<li data-role="list-divider" data-i18n="edittaskspage.range">Range</li>
+						<li>
+							<label for="input-range-start" data-i18n="edittaskspage.start">Start:</label>
+							<input id="input-range-start" type="text"></input>
+						</li>
+						<li>
+							<label for="input-range-stop" data-i18n="edittaskspage.stop">Stop:</label>
+							<input id="input-range-stop" type="text"></input>
+						</li>
+						<li>
+							<label for="input-range-step" data-i18n="edittaskspage.step">Step:</label>
+							<input id="input-range-step" type="text"></input>
+						</li>
+					</ul>
+					<ul id="tasknode-list-attributes" class="hidden-element" data-role="listview" data-inset="true">
+						<li data-role="list-divider" data-i18n="edittaskspage.enterlistvalues">Enter List Values</li>
+						<li><textarea id="input-list-options" type="text"></textarea></li>
 					</ul>
 				</div>
 			</div>
