@@ -9,4 +9,8 @@ Uses following libraries / extensions:
 * i18next
 
 ### Build
-Windows build: run .\buildWindows.cmd
+Build on Windows machine: run .\buildWindows.cmd
+Build on Linux machine: run .\buildLinux.sh
+
+### libudev Patch
+Libudev patch is possibly needed on Linux machines. There is a bash script in the build folder for this purpose.
