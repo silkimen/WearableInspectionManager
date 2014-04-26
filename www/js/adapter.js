@@ -19,6 +19,7 @@ var inspectionItem = function() {
 	var GenericListOption = function() {
 		this.class = 'net.muszytowski.WearableInspectionServer.items.GenericListOption';
 		this.value = '';
+		this.resourceIdentifier = null;
 	}
 
 	var Task = function() {
