@@ -50,13 +50,13 @@ var inspectionManager = {
 	// Event Handler
 	onLoad: function(event, data) {
 		if(data.prevPage.attr('id') != 'edittasks') {
-			$('.inspection-edit-path').text($.t('editpage.chooseInspection'));
 			$('.node-operation li a').addClass('ui-state-disabled');
 		}
 	},
 	onAfterLoad: function(event, data) {
 		// Wichtig! Greift nur bei diesem Event
 		if(data.prevPage.attr('id') != 'edittasks') {
+			$('.inspection-edit-path').text($.t('editpage.chooseInspection'));
 			inspectionTree.loadData();
 			$.mobile.loading('show');
 		}

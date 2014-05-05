@@ -88,5 +88,9 @@
 			"range":"Range Task",
 			"string":"String Task"
 		}
+	},
+	"resultpage": {
+		"chooseInspection":"Please select an inspection node",
+		"inspectionoverview":"Inspection overview"		
 	}
 }

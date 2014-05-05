@@ -20,6 +20,7 @@
 	<script src="js/tree.js"></script>
 	<script src="js/inspection.js"></script>
 	<script src="js/task.js"></script>
+	<script src="js/result.js"></script>
 	<script src="js/main.js"></script>
 </head>
 <body>
@@ -41,7 +42,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#show">
+				<a href="#result">
 					<img src="img/search.png">
 					<h2 data-i18n="mainpage.button.show.title">title</h2>
 					<p data-i18n="mainpage.button.show.description">description</p>
@@ -96,7 +97,7 @@
 					<h3 data-i18n="editpage.inspectionOverview">Overview</h3>
 				</div>
 				<div class="ui-body ui-body-a min-height-210">
-					<ul id="tree" class="ztree"></ul>
+					<ul class="tree ztree"></ul>
 				</div>
 			</div>
 			<div class="ui-block-b">
@@ -370,6 +371,40 @@
 				<div class="ui-block-b"><a href="#" id="taskpopup-deletenode-cancel" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back" data-i18n="app.cancel">Cancel</a></div>
 			</fieldset>
 		</div>
+	</div>
+</div>
+
+<!-- View Execution Results Page -->
+<div data-role="page" id="result">
+	<div data-role="header">
+		<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+			<a href="#" id="result-back" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" data-i18n="app.back">Back</a>
+		</div>
+		<h2 data-i18n="menu.result">View Inspection results</h2>
+		<a href="#settings" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear" data-i18n="header.settings">Settings</a>
+	</div>
+	<div role="main" class="ui-content">
+		<div class="ui-grid-custom">
+			<div class="ui-block-a">
+				<div class="ui-bar ui-bar-a">
+					<h3 data-i18n="resultpage.inspectionoverview">Overview</h3>
+				</div>
+				<div class="ui-body ui-body-a min-height-210">
+					<ul class="tree ztree"></ul>
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<div class="ui-bar ui-bar-a">
+					<h3 class="inspection-result-path">Path</h3>
+				</div>
+				<div class="ui-body ui-body-a min-height-210">
+<!-- sdfdslj -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed" class="inspection-footer">
+		<p><span class="inspection-logo-small">Inspection Designer xx</span><span class="status-message"></span></p>
 	</div>
 </div>
 

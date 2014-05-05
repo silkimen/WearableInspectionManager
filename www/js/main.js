@@ -21,6 +21,9 @@ var inspectionClient = {
 		
 		// initialisiere Tasksedit View Handler
 		taskManager.init();
+		
+		// initialisiere Result View Handler
+		resultManager.init();
 	},
 	settings: {
 		// wird aus dem Localstorage geladen, oder Defaults werden übernommen

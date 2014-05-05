@@ -14,6 +14,7 @@ var inspectionTree = {
 		callback: {
 			onClick: function(e, treeId, treeNode, clickFlag) {
 				inspectionManager.onSelectNode(treeNode);
+				resultManager.onSelectNode(treeNode);
 			}
 		},
 		view: {
@@ -121,7 +122,7 @@ var inspectionTree = {
 		if(this.taskTree) {
 			var selectedTask = this.taskTree.getSelectedNodes()[0];
 		}
-		this.zTree = $.fn.zTree.init($('#tree'), this.InspectionTreeSettings, this.inspectionNodes);
+		this.zTree = $.fn.zTree.init($('.tree'), this.InspectionTreeSettings, this.inspectionNodes);
 		this.taskTree = $.fn.zTree.init($('#tasktree'), this.TaskTreeSettings, this.taskNodes);
 		if(selectedInspection && !fullReset) {
 			// Wichtig! Neu einlesen des selektierten Nodes, da der Name geändert sein kann
