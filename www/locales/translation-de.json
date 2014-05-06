@@ -92,6 +92,8 @@
 	},
 	"resultpage": {
 		"chooseInspection":"Bitte wählen Sie einen Inspektionsknoten",
-		"inspectionoverview":"Inspektionsübersicht"		
+		"executedon":"ausgeführt am",
+		"inspectionoverview":"Inspektionsübersicht",
+		"noexecutions":"keine Ausführungen vorhanden"
 	}
 }

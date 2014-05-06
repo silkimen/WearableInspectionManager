@@ -10,27 +10,29 @@ var resultManager = {
 	
 	// Event Handler
 	onLoad: function(event, data) {
-		
+		$('.result-list').html('');
+		$('.inspection-result-path').text($.t('resultpage.chooseInspection'));
 	},
 	onAfterLoad: function(event, data) {
-		$('.inspection-result-path').text($.t('resultpage.chooseInspection'));
 		inspectionTree.loadData();
 		$.mobile.loading('show');
 	},
 	onSelectNode: function(treeNode) {
 		$('.inspection-result-path').text(inspectionTree.getNodePath(treeNode));
-		$('.node-operation li a').removeClass('ui-state-disabled');
-		if(treeNode.isParent) {
-			$('#button-delete-node').addClass('ui-state-disabled');
-		}
 		if(treeNode.type == 'group') {
-			$('#button-edit-task').addClass('ui-state-disabled');
+			// TODO
 		}
 		if(treeNode.type == 'doc') {
-			$('#button-add-node').addClass('ui-state-disabled');
-		}
-		if(treeNode.pId == 0 || treeNode.pId == null) {
-			$('#button-delete-node').addClass('ui-state-disabled');
+			executionManager.getList(treeNode.taskId, function(list) {
+				$('.result-list').html('');
+				list.forEach(function(item) {
+					$('<li>').append('<a href="#">' + item + '</a>').appendTo('.result-list');
+				})
+				if(list.length == 0) {
+					$('<li>').append('<a href="#">' + $.t('resultpage.noexecutions') + '</a>').appendTo('.result-list');
+				}
+				$('.result-list').listview().listview('refresh');
+			});
 		}
 	},
 	onLeave: function() {

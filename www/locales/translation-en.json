@@ -91,6 +91,8 @@
 	},
 	"resultpage": {
 		"chooseInspection":"Please select an inspection node",
-		"inspectionoverview":"Inspection overview"		
+		"executedon":"executed on",
+		"inspectionoverview":"Inspection overview",
+		"noexecutions":"no executions available"
 	}
 }
