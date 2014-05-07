@@ -1,7 +1,7 @@
 // Datenobjekt zur Kapselung
 var inspectionClient = {
 	title: 'Inspection Manager',
-	version: '0.1',
+	version: '0.2',
 	isNwPackage: typeof(process) == 'object',
 	init: function() {
 		// initialisiere Einstellungen
