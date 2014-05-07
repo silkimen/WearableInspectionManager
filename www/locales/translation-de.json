@@ -91,9 +91,19 @@
 		}
 	},
 	"resultpage": {
+		"choosedocument":"Bitte ein Dokument wählen",
 		"chooseInspection":"Bitte wählen Sie einen Inspektionsknoten",
-		"executedon":"ausgeführt am",
+		"executedon":"Ausgeführt am",
 		"inspectionoverview":"Inspektionsübersicht",
-		"noexecutions":"keine Ausführungen vorhanden"
+		"noexecutions":"Keine Rückmeldungen vorhanden",
+		"response":"Rückmeldung"
+	},
+	"resultdetailpage": {
+		"description":"Beschreibung",
+		"false":"falsch",
+		"nodescription":"keine Beschreibung",
+		"novalue":"kein Wert angegeben",
+		"true":"wahr",
+		"value":"Wert"
 	}
 }

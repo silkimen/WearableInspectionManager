@@ -21,6 +21,7 @@
 	<script src="js/inspection.js"></script>
 	<script src="js/task.js"></script>
 	<script src="js/result.js"></script>
+	<script src="js/resultdetail.js"></script>
 	<script src="js/execution.js"></script>
 	<script src="js/main.js"></script>
 </head>
@@ -103,7 +104,7 @@
 			</div>
 			<div class="ui-block-b">
 				<div class="ui-bar ui-bar-a">
-					<h3 class="inspection-edit-path">Path</h3>
+					<h3 class="inspection-edit-path"></h3>
 				</div>
 				<div class="ui-body ui-body-a min-height-210">
 					<ul class="node-operation" data-role="listview" data-inset="true">
@@ -242,7 +243,7 @@
 			</div>
 			<div class="ui-block-b">
 				<div class="ui-bar ui-bar-a">
-					<h3 class="task-edit-path">Path</h3>
+					<h3 class="task-edit-path"></h3>
 				</div>
 				<div class="ui-body ui-body-a min-height-210">
 					<ul class="tasknode-operation" data-role="listview" data-inset="true">
@@ -375,7 +376,7 @@
 	</div>
 </div>
 
-<!-- View Execution Results Page -->
+<!-- Execution Result List Page -->
 <div data-role="page" id="result">
 	<div data-role="header">
 		<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
@@ -396,7 +397,7 @@
 			</div>
 			<div class="ui-block-b">
 				<div class="ui-bar ui-bar-a">
-					<h3 class="inspection-result-path">Path</h3>
+					<h3 class="inspection-result-path"></h3>
 				</div>
 				<div class="ui-body ui-body-a min-height-210">
 					<ul class="result-list" data-role="listview" data-inset="true">
@@ -405,6 +406,33 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div data-role="footer" data-position="fixed" class="inspection-footer">
+		<p><span class="inspection-logo-small">Inspection Designer xx</span><span class="status-message"></span></p>
+	</div>
+</div>
+
+<!-- Execution Result Detail Page -->
+<div data-role="page" id="resultdetail">
+	<div data-role="header">
+		<div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+			<a href="#" id="resultdetail-back" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back" data-i18n="app.back" data-rel="back">Back</a>
+		</div>
+		<h2 class="resultdetail-title">Inspection title</h2>
+		<a href="#settings" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear" data-i18n="header.settings">Settings</a>
+	</div>
+	<div role="main" class="ui-content">
+		<ul class="resultdetail-list" data-role="listview" data-inset="true">
+			<!--
+			<li>
+				<a href="#">
+					<img src="img/edit.png">
+					<h2 data-i18n="">title</h2>
+					<p data-i18n="">description</p>
+				</a>
+			</li>
+			-->
+		</ul>
 	</div>
 	<div data-role="footer" data-position="fixed" class="inspection-footer">
 		<p><span class="inspection-logo-small">Inspection Designer xx</span><span class="status-message"></span></p>

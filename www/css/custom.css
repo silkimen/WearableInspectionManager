@@ -42,9 +42,14 @@
 	display: none;
 }
 /* inline controlgroup */
-.controlgroup-textinput{
+.controlgroup-textinput {
     padding-top:.11em;
     padding-bottom:.11em;
+}
+/* custom icon position in detail list */
+.resultdetail-list-img {
+	top: 10px !important;
+	left: 10px !important;
 }
 /* zTree styling */
 .ztree li span.button.group_ico_open{margin-right:2px; background-position:-110px -16px; vertical-align:top; *vertical-align:middle}

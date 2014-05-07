@@ -24,6 +24,9 @@ var inspectionClient = {
 		
 		// initialisiere Result View Handler
 		resultManager.init();
+		
+		// initialisiere Result Detail View Handler
+		resultDetailManager.init();
 	},
 	settings: {
 		// wird aus dem Localstorage geladen, oder Defaults werden übernommen
